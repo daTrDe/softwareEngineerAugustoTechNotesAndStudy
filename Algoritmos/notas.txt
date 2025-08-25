@@ -1,0 +1,81 @@
+¿Qué es un algoritmo?
+- Un algoritmo es una secuencia de de pasos o instrucciones para resolver un problema, y tienen un input, un  proceso y un output.
+
+Un problema y muchas soluciones... ¿Cuánto tarda el algoritmo? ¿Cuánto espacio en memoria ocupa un algoritmo? 
+
+¿Qué estudia la teoría de la complejidad? 
+-   Estudia el consumo de recursos que un algoritmo ocupa.
+ *En la complejidad queremos entender el crecimiento de recursos, no su tamaño. El crecimiento de recursos importa. 
+    Por ejemplo: Un coche recorre 60 km en 1 hora, luego 120 km en 2 horas, 180 km en 3 horas. La relación entre distancia y tiempo es lineal: 
+    si duplicas la distancia, duplicas el tiempo. Esto es como un algoritmo O(n), donde el tiempo crece proporcionalmente al número de elementos que procesas.
+    Ahora piensa en otra situación: el coche no solo recorre más kilómetros, sino que cada hora se mueve más lento porque se mete en más tráfico o hace más paradas. 
+    Por ejemplo, para recorrer 60 km le toma 1 hora, pero para 120 km le toma 4 horas, y para 180 km le toma 9 horas. Aquí el tiempo crece como el cuadrado de la distancia: O(n²). 
+    Este patrón ilustra cómo algunos algoritmos se vuelven cada vez más costosos cuando aumenta el tamaño del input.
+
+¿Y la complejidad espacial?
+-   La complejidad espacial, se encarga de calcular cuanto espacio en memoria puede ocupar un algoritmo, a parte del espacio ocupado por los datos de entrada, existe 
+    el espacio auxiliar, el cual es el espacio creado por el mismo algoritmo para hacer otro procesos, por ejemplo: filtrar un array, hacer un sort de números, etc. 
+    El espacio auxiliar incluso puede llegar a hacer mucho más grande que el espacio de los datos de entrada, y está relacionado al algoritmo mas que a los datos recibos.
+
+¿Complejidad temporal?
+ -  La complejidad no se trata de cuando mas o menos se tarda sino como aumenta en el tiempo.
+    Por ejemplo, en algunos algoritmos podemos observar que el tiempo aumenta dependiendo de los datos de entrada y 
+    en otros algoritmos podemos observar que el tiempo es constante
+    sin depender de los datos de entrada.
+
+En js podemos utilizar una interfaz llamada performance.now(), esto para medir de linea a linea cuanto tarda en procesarse un algoritmo. 
+El ejemplo esta dentro de esta carpeta con el nombre performance-now.js.
+En este ejemplo podemos observar que cada vez que medimos el tiempo en el que se ejecuta el algoritmo cambia, esto sin cambiar las inputs y sólo correrlo
+una y otra vez. 
+
+El estado de la complejidad; ¿La complejidad solo mide espacio y tiempo? NO! Otras complejidades existentes son accesos a memoria, procesos paralelos, 
+comparaciones, entre otras. 
+
+¿Como simplificamos la complejidad?
+En la vida real y como ya lo vimos, cuando ejecutamos un algoritmo por más sencillo que parezca (como en el archivo performance-now) puede tardar o variar en el tiempo
+de ejecución, esto nos lleva a simplificar la complejidad, con el análisis asintótica, es un método para describir el comportamiento limitante de una función.
+Encontrar una función muy parecida a la complejidad, de eso se trata de la simplificación de la complejidad, usaremos Big O.
+
+La notación Big-O son una forma de llamar a una complejidad, queremos simplificarlo en "pocas palabras", ya sea una función constante, lineal, polinomial, 
+logarítmica y exponencial. Las clases de Big-O que existen son solamente clases, no son funciones, o sea que clases son solamente una forma de llamarlos, por ejemplo y lo pongo
+de manera ordenada, del mejor o el que consume menos recursos hasta el que consume más recursos:
+-   0(1) = 0()
+-   O(log n) = 0()
+-   O(n) = O()
+-   O(n²) = O()
+-   0(2) = 0()
+-   O(n!) = 0()
+
+Para calcular Big-O en complejidad temporal podemos basarnos en esto que nos dice cuantos recursos consumiría nuestra computadora, ya sea una computadora lenta o rápida:
+-   let bar = 'test'	// O(1)  
+-   if() {}		// O(1)
+-   for() {}		// O(n)
+-   while() {}	// O(n)
+-   for() { for() {} }// O(n^2)
+        
+        -Variables: tienen una notación constante O(1) debido a que al crear una variable se demora un tiempo constante.
+        -Condicionales: tienen una notación constante O(1) debido a que procesa la condición en un tiempo constante.
+        -Ciclos repetitivos: tienen una notación lineal O(n) debido a que en el peor de los casos, estos ejecutan n veces una instrucción.
+        -Ciclos repetitivos anidados: tienen una notación cuadrática O(n^2) debido a que cada ciclo interno se ejecuta n veces el ciclo externo.
+
+Para calcular Big-O en complejidad espacial podemos basarnos en esto que nos dice cuantos recursos consumiría nuestra computadora, pero esta vez en memoria:   
+-   let bar = 'test'  // 0(1)
+-   if () {}               // 0(1)
+-   for () {}             // 0(1)
+-   let resultado = [1,2,...,n]  // 0(n)
+-   let dimensional = [[2,4],[6,8],[10,12]] //0(n^2)
+
+        -Variables: tienen una notación constante O(1) debido a que guarda un espacio de memoria.
+        -Condicionales: tienen una notación constante O(1) debido a que procesa la condición en un espacio de memoria.
+        -Ciclos repetitivos: tienen una notación lineal O(1) debido a que procesa el bucle en un espacio de memoria.
+        -Arrays: tienen una notación lineal O(n) porque guarda en memoria n elementos.
+        -Matrices o array de arrays: tienen una notación cuadrática O(n^2) porque por cada elemento del array guarda otro array de n elementos.
+
+Para simplificar la notación nos concentramos en el valor podemos abreviarlo de la siguiente manera
+O(2n) ⇒ O(n)
+O(50) ⇒ O(1)
+O(n² + 50) ⇒ O(n²)
+Es posible simplificar de esta manera, ya que solo nos importa el grado mayor
+
+La notación Big-O solo se enfoca en el crecimiento.
+
